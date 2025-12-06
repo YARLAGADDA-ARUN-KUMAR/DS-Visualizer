@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Data Structures Visualizer</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <aside>
+            <h1>DS Visualizer</h1>
+            <nav>
+                <button onclick="router('stack')" id="nav-stack" class="active">Stack</button>
+                <button onclick="router('queue')" id="nav-queue">Queue</button>
+                <button onclick="router('sll')" id="nav-sll">Singly Linked List</button>
+                <button onclick="router('cll')" id="nav-cll">Circular Linked List</button>
+                <button onclick="router('bst')" id="nav-bst">Binary Search Tree</button>
+            </nav>
+        </aside>
+
+        <main>
+            <div id="page-stack" class="page active">
+                <header>
+                    <h2>Stack</h2>
+                    <div class="message-box" id="msg-stack"></div>
+                </header>
+                <div class="controls">
+                    <input type="number" id="stack-input" placeholder="Value" />
+                    <button class="btn btn-primary" onclick="stack.push()">Push</button>
+                    <button class="btn btn-danger" onclick="stack.pop()">Pop</button>
+                    <button class="btn" onclick="stack.peek()">Peek</button>
+                    <button class="btn" onclick="stack.clear()">Clear</button>
+                </div>
+                <div class="visual-container" id="stack-container"></div>
+            </div>
+
+            <div id="page-queue" class="page">
+                <header>
+                    <h2>Queue</h2>
+                    <div class="message-box" id="msg-queue"></div>
+                </header>
+                <div class="controls">
+                    <input type="number" id="queue-input" placeholder="Value" />
+                    <button class="btn btn-primary" onclick="queue.enqueue()">Enqueue</button>
+                    <button class="btn btn-danger" onclick="queue.dequeue()">Dequeue</button>
+                    <button class="btn" onclick="queue.front()">Front</button>
+                    <button class="btn" onclick="queue.rear()">Rear</button>
+                    <button class="btn" onclick="queue.clear()">Clear</button>
+                </div>
+                <div class="visual-container" id="queue-container"></div>
+            </div>
+
+            <div id="page-sll" class="page">
+                <header>
+                    <h2>Singly Linked List</h2>
+                    <div class="message-box" id="msg-sll"></div>
+                </header>
+                <div class="controls">
+                    <input type="number" id="sll-input" placeholder="Value" />
+                    <button class="btn btn-primary" onclick="sll.insertHead()">Add Head</button>
+                    <button class="btn btn-primary" onclick="sll.insertTail()">Add Tail</button>
+                    <button class="btn btn-danger" onclick="sll.deleteHead()">Delete Head</button>
+                    <button class="btn btn-danger" onclick="sll.deleteTail()">Delete Tail</button>
+                </div>
+                <div class="visual-container">
+                    <div id="sll-container" class="ll-container"></div>
+                </div>
+            </div>
+
+            <div id="page-cll" class="page">
+                <header>
+                    <h2>Circular Linked List</h2>
+                    <div class="message-box" id="msg-cll"></div>
+                </header>
+                <div class="controls">
+                    <input type="number" id="cll-input" placeholder="Value" />
+                    <button class="btn btn-primary" onclick="cll.insertHead()">Add Head</button>
+                    <button class="btn btn-primary" onclick="cll.insertTail()">Add Tail</button>
+                    <button class="btn btn-danger" onclick="cll.deleteHead()">Delete Head</button>
+                    <button class="btn btn-danger" onclick="cll.deleteTail()">Delete Tail</button>
+                </div>
+                <div class="visual-container">
+                    <div id="cll-container" class="ll-container"></div>
+                </div>
+            </div>
+
+            <div id="page-bst" class="page">
+                <header>
+                    <h2>Binary Search Tree</h2>
+                    <div class="message-box" id="msg-bst"></div>
+                </header>
+                <div class="controls">
+                    <input type="number" id="bst-input" placeholder="Value" />
+                    <button class="btn btn-primary" onclick="bst.insert()">Insert</button>
+                    <button class="btn" onclick="bst.search()">Search</button>
+                    <button class="btn" onclick="bst.traverse('in')">In-Order</button>
+                    <button class="btn" onclick="bst.traverse('pre')">Pre-Order</button>
+                    <button class="btn" onclick="bst.traverse('post')">Post-Order</button>
+                    <button class="btn btn-danger" onclick="bst.clear()">Clear</button>
+                </div>
+                <div class="visual-container" style="display: block; overflow: auto">
+                    <div id="bst-visual" class="tree-container"></div>
+                </div>
+                <div id="bst-output" class="traversal-output">Traversal Output:</div>
+            </div>
+        </main>
+    </body>
+</html>
