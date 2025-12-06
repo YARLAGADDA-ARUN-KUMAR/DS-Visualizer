@@ -43,8 +43,8 @@ const stack = {
 
     pop() {
         if (this.data.length === 0) return showMsg('msg-stack', 'Stack Empty', 'error');
+        const el = this.container.lastElementChild;
 
-        const el = this.container.firstElementChild;
         if (el) {
             el.classList.add('removing');
             el.addEventListener(
@@ -65,7 +65,7 @@ const stack = {
 
     peek() {
         if (!this.data.length) return showMsg('msg-stack', 'Stack Empty', 'error');
-        const topNode = this.container.firstElementChild;
+        const topNode = this.container.lastElementChild;
         highlightNode(topNode);
     },
 
@@ -77,7 +77,7 @@ const stack = {
 
     render() {
         this.container.innerHTML = '';
-        [...this.data].reverse().forEach((v) => {
+        this.data.forEach((v) => {
             const n = document.createElement('div');
             n.className = 'node';
             n.textContent = v;
